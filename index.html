@@ -42,7 +42,8 @@
                 </div>
                 <ul class="" v-if="tasks.length > 0">
                     <li v-for="(elemento,index) in tasks" class="d-flex flex-row justify-content-center gap-4"
-                        :class="elemento.done ? 'crossed' : ''"> <!--posso aggiungere una classe css tramite controllo ternaio inline -->
+                    :class="{'crossed': elemento.done, 'dissolvenza':elemento.done }"> <!--posso aggiungere una classe css tramite controllo ternaio inline megaridotto cosi o 
+                                                                                :class="elemento.done ? 'crossed' : ''"-->
                         <p>{{elemento.text}}</p>
                         <a @click="finish(index)"><i class="fa-solid fa-check fa-shake" style="color: #66ff00;"></i></a>
                         <!--Le icone tremano e finche non si cliccano, il task non scompare-->
@@ -59,3 +60,6 @@
 </body>
 
 </html>
+
+
+<!-- > -->

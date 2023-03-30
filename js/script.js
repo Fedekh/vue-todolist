@@ -67,7 +67,7 @@ const { createApp } = Vue;
         this.timer = setTimeout(() =>{               // imposto un timer di 2 secondi prima che scompaia
           this.tasks.splice(index,1);
           this.finishTasks = false;
-        },2000);
+        },1500);
       },
       
     }

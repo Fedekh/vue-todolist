@@ -41,7 +41,15 @@ input{
 
 }
 
+/* classi da aggiungere dopo gli eventi */
 .crossed {
+    font-size: 4rem;
     text-decoration: line-through;
  }
+
+ /* Imposta l'effetto di dissolvenza per 3s */
+ .dissolvenza {
+    transition: opacity 3s ease-in-out;       
+    opacity: 0;                           /* Rendi il task trasparente */       
+}
 
