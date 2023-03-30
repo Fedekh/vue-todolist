@@ -35,7 +35,7 @@
 
                 <div class="d-flex flex-column align-items-center mb-3">
                     <p class="error-alert" v-show="alertError">Errore! Non hai inserito niente!!!!</p>
-                    <input type="text" placeholder="Inserisci un nuovo task" v-model.trim="newText">
+                    <input type="text" placeholder="Inserisci un nuovo task" @keyup.enter="addTask" v-model.trim="newText">
                     <!--.trim controlla subito se non ci sono spazi come primo e ultimo carattere -->
 
                     <button class="btn btn-success  my-4 align-self-center" @click="addTask">Aggiungi</button>
