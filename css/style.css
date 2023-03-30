@@ -22,7 +22,7 @@ ul{
 }
 
 .wrapper ul {
-    color:red;
+    color:rgb(127, 103, 215);
     font-size: 1.6rem;
     
 }
@@ -30,3 +30,13 @@ ul{
 input{
     width: 350px;
 }
+
+.error-alert{
+    color: red;
+    font-size: 1.6rem;
+
+}
+
+.crossed {
+    text-decoration: line-through;
+  }

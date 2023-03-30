@@ -19,32 +19,46 @@ const { createApp } = Vue;
   createApp({
     data() {
       return {
-        todos: [
+        tasks: [
           {
-            text: "Pulire casa",
+            text: 'Pulire casa',
             done: false
           },
           {
-            text: "Pulire cane",
-            done: false
+            text: '"Uscire" il cane',
+            done: true
           },
           {
-            text: "Pulire auto",
-            done: false
+            text: 'Cambiare gomme auto',
+            done: true
           },
           {
-            text: "Pulire grondaia",
-            done: false
+            text: 'Ritinteggiare camera',
+            done: true
           },
           {
-            text: "Fare palestra",
+            text: 'Fare palestra',
             done: false
           },
 
         ],
-        
-        newTodo: "",
-        error: false
-      }
+
+        newText: "",        //variabile d'appoggio per poi riscriverla e pusharlo all'interno dell array
+        newDone: false,
+        alertError: false
+      };
+    },
+    methods:{
+      addTask(){  //aggiungo una nuova voce task una volta cliccato il buttone verde
+        if(this.newText.length > 0){
+          this.alertError = false ;       //resetto cmq il flag
+          this.newText = this.newText[0].toUpperCase() + this.newText.substring(1);
+          this.tasks.unshift({text:this.newText , done:false});
+          this.newText = "";
+        }else{
+          this.alertError = true;
+        }
+      },
+
     }
   }).mount('#app');

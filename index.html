@@ -26,22 +26,23 @@
         </header>
 
         <main>
-            <div class="wrapper text-center">
+            <div class="wrapper text-center mx-auto row-cols-1">
                 <h1>TO DO LIST</h1>
 
-                <div class="d-flex mx-auto col-4 flex-column align-items-center mb-3">
-                    <input type="text" placeholder="Inserisci un nuovo task">
-                    <button class="btn btn-success  my-4 align-self-center">Aggiungi</button>
+                <div class="d-flex flex-column align-items-center mb-3">
+                    <p class="error-alert" v-show="alertError">Errore! Non hai inserito niente!!!!</p>
+                    <input type="text" placeholder="Inserisci un nuovo task" v-model.trim="newText"> <!--.trim controlla subito se non ci sono spazi come primo e ultimo carattere -->
+                    
+                    <button class="btn btn-success  my-4 align-self-center" @click="addTask">Aggiungi</button>
                 </div>
-                <ul class="row-cols-1">
-                    <li>task</li>
-                    <li>task</li>
-                    <li>task</li>
-                    <li>task</li>
-                   
+                <ul class="" v-if="tasks.length > 0">
+                    <li v-for="elemento in tasks" :class="elemento.done ? 'crossed' : ''"> <!--posso aggiungere una classe css tramite controllo ternaio inline --> 
+                        <p>{{elemento.text}}</p>
+                    </li>
+
                 </ul>
                 <div class="empty-list" v-else>
-                  
+                    <p>Non c'è piu nulla</p>
                 </div>
             </div>
         </main>
