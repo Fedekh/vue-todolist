@@ -26,15 +26,15 @@ const { createApp } = Vue;
           },
           {
             text: '"Uscire" il cane',
-            done: true
+            done: false
           },
           {
             text: 'Cambiare gomme auto',
-            done: true
+            done: false
           },
           {
             text: 'Ritinteggiare camera',
-            done: true
+            done: false
           },
           {
             text: 'Fare palestra',
@@ -44,21 +44,31 @@ const { createApp } = Vue;
         ],
 
         newText: "",        //variabile d'appoggio per poi riscriverla e pusharlo all'interno dell array
-        newDone: false,
-        alertError: false
+        alertError: false,
+        finishTasks: false,
+        timer:""
       };
     },
     methods:{
       addTask(){  //aggiungo una nuova voce task una volta cliccato il buttone verde
         if(this.newText.length > 0){
-          this.alertError = false ;       //resetto cmq il flag
+          this.alertError = false ;            //resetto cmq il flag
           this.newText = this.newText[0].toUpperCase() + this.newText.substring(1);
           this.tasks.unshift({text:this.newText , done:false});
           this.newText = "";
         }else{
-          this.alertError = true;
+          this.alertError = true;         //uscira fuori il messaggio che le tasks sono finite
         }
       },
-
+      finish(index){   
+        clearTimeout(this.timer);                //dare l'effetto dissolvenza alla scomparsa del task
+        this.tasks[index].done = true;
+        this.finishTasks = true;
+        this.timer = setTimeout(() =>{               // imposto un timer di 2 secondi prima che scompaia
+          this.tasks.splice(index,1);
+          this.finishTasks = false;
+        },2000);
+      },
+      
     }
   }).mount('#app');

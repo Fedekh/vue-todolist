@@ -24,14 +24,18 @@ ul{
 .wrapper ul {
     color:rgb(127, 103, 215);
     font-size: 1.6rem;
-    
+}
+
+a {
+    cursor: pointer;
+
 }
 
 input{
     width: 350px;
 }
 
-.error-alert{
+.error-alert, .finish{
     color: red;
     font-size: 1.6rem;
 
@@ -39,4 +43,5 @@ input{
 
 .crossed {
     text-decoration: line-through;
-  }
+ }
+
