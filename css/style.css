@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(38, 39, 39);
+}
+
+/* HEADER */
+
+header {
+    height: 150px;
+    width: 100%;
+    background-color: #01B170;
+    line-height: 80px;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: 150px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.wrapper ul {
+    color:red;
+    font-size: 1.6rem;
+    
+}
+
+input{
+    width: 350px;
+}
